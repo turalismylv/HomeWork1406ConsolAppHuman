@@ -36,13 +36,25 @@ namespace ConsoleApp1
                             Console.WriteLine("Studentin soyadini qeyd edin");
                             string surname = Console.ReadLine();
                             student.Surname = surname;
+                            AGE:
                             Console.WriteLine("Studentin yasini qeyd edin");
                             string _age = Console.ReadLine();
-                            int age = int.Parse(_age);
+                            bool isAge = int.TryParse(_age, out int age);
+                            if (!isAge)
+                            {
+                                Console.WriteLine("Yanlis daxil edildi,zehmet olmasa Duzgun daxil edin");
+                                goto AGE;
+                            }
                             student.Age = age;
+                            GRADE:
                             Console.WriteLine("Studentin balini qeyd edin");
                             string _gr = Console.ReadLine();
-                            int grade = int.Parse(_gr);
+                            bool isGrade = int.TryParse(_gr, out int grade);
+                            if (!isGrade)
+                            {
+                                Console.WriteLine("Yanlis daxil edildi,zehmet olmasa Duzgun daxil edin");
+                                goto GRADE;
+                            }
                             student.Grade = grade;
                             st.Add(student);
                             Console.WriteLine($"{name} adli student elave olundu twk<3");
@@ -56,9 +68,15 @@ namespace ConsoleApp1
                             Console.WriteLine("Iscinin soyadini qeyd edin");
                             string surname2 = Console.ReadLine();
                             employe.Surname = surname2;
+                            AGEE:
                             Console.WriteLine("Iscinin yasini qeyd edin");
                             string _age1 = Console.ReadLine();
-                            int age1 = int.Parse(_age1);
+                            bool isAgee = int.TryParse(_age1, out int age1);
+                            if (!isAgee)
+                            {
+                                Console.WriteLine("Yanlis daxil edildi,zehmet olmasa Duzgun daxil edin");
+                                goto AGEE;
+                            }
                             employe.Age = age1;
                             Console.WriteLine("Iscinin  position  qeyd edin");
                             string _ps = Console.ReadLine();
@@ -86,9 +104,10 @@ namespace ConsoleApp1
                                         {
                                             Console.WriteLine((item.Position.ToString()));
                                         }
-                                        
+                                       
                                         Console.WriteLine("Position daxil edin");
                                         string pos = Console.ReadLine();
+                                       
                                         foreach (var item in ep)
                                         { 
                                             
@@ -96,6 +115,7 @@ namespace ConsoleApp1
                                             {
                                                 Console.WriteLine(item.Name);
                                             }
+                                            
                                             
                                         }
                                         break;
